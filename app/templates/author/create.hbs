@@ -1,0 +1,29 @@
+<div class="slider-out-bg"></div>
+<div class="slide-out">
+  {{#link-to "author" class="btn-back"}}
+  <span class="sr-only">Back</span>
+  {{/link-to}}
+
+  <div class="slide-out-heading">
+    <div class="title">
+      <h3>New Author</h3>
+    </div>
+  </div>
+
+  <div class="slide-out-content">
+    <form onsubmit={{ action "saveAuthor"}}>
+      <div class="field">
+        <label for="">First Name</label>
+        {{input type="text" placeholder="First Name"
+          value=model.first}}
+      </div>
+      <div class="field">
+        <label for="">Last Name</label>
+        {{input value=model.last placeholder="Lastz Name"}}
+      </div>
+      <div class="form-footer">
+        <button class="btn-submit">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
