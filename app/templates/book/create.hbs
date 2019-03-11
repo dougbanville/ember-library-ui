@@ -1,0 +1,40 @@
+<div class="slider-out-bg"></div>
+<div class="slide-out">
+  {{#link-to "book" class="btn-back"}}
+  <span class="sr-only">Back</span>
+  {{/link-to}}
+
+  <div class="slide-out-heading">
+    <div class="title">
+      <h3>New Book</h3>
+    </div>
+  </div>
+
+  <div class="slide-out-content">
+    <form onsubmit={{action "saveBook"}}>
+      <div class="field">
+        <label for="Title">Title</label>
+        {{input type="text" value=model.title placeholder="Title"}}
+      </div>
+      <div class="field">
+        <label for="ISBN">ISBN</label>
+        {{input type="text" value=model.isbn placeholder="ISBN"}}
+      </div>
+      <div class="field">
+        <label for="date">Publish Date</label>
+        {{input type="date" value=model.publishDate placeholder="Publish Date"}}
+      </div>
+      <div class="field">
+        <label>Author</label>
+        <p class="control">
+          {{#power-select onchange=(action (mut model.author)) selected=model.author search=(action "searchAuthor") as |author|}}
+          {{author.last}}, {{author.first}}
+          {{/power-select}}
+        </p>
+      </div>
+      <div class="form-footer">
+        <button class="btn-submit">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
